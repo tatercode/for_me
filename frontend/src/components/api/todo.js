@@ -22,4 +22,23 @@ export const get_todos = async () => {
   }
 };
 
+export const post_todo = async (todo) => {
+  try {
+    const response = await fetch(apiUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(todo), // include the payload
+    });
 
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+    return data; // return the response data
+  } catch (error) {
+    console.error('Error:', error);
+    throw error;
+  }
+};

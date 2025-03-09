@@ -38,7 +38,7 @@ const DraggableArea = () => {
                 {todos.map((card, index) => (
                   <Draggable
                     key={card.id}
-                    draggableId={card.id}
+                    draggableId={card.id.toString()} // Need to be string for dnd
                     index={index}
                   >
                     {(provided) => (
@@ -51,7 +51,7 @@ const DraggableArea = () => {
                           margin: '8px 0',
                         }}
                       >
-                        <ToDoCard text={card.text} />
+                        <ToDoCard text={card.text} completed={card.completed}  />
                       </div>
                     )}
                   </Draggable>

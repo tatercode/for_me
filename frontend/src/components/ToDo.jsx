@@ -3,10 +3,11 @@ import { Typography } from "@mui/material";
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import DraggableArea from "./DraggableArea";
-import AddBoxIcon from '@mui/icons-material/AddBox';
+import TodoModal from './TodoModal'; 
 
 const ToDo = () => { // Store cards in state with proper IDs
-  
+  const [open, setOpen] = React.useState(false);
+
   return (
     <Box sx={{
       display: 'flex',
@@ -26,7 +27,7 @@ const ToDo = () => { // Store cards in state with proper IDs
           Taven's TODOs
         </Typography>
         <DraggableArea ></DraggableArea>
-        <AddBoxIcon sx={{ cursor: 'pointer' }} />
+        <TodoModal setOpen={setOpen} open={open}/>
       </Paper>
     </Box>
   );

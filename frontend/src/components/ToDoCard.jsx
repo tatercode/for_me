@@ -3,8 +3,9 @@ import Checkbox from "@mui/material/Checkbox";
 import {Typography, FormControlLabel} from "@mui/material";
 import {useState} from 'react';
 
-const ToDoCard = ({text}) => {
-  const [checked, setCheck] = useState(false);
+const ToDoCard = ({text, completed}) => {
+  const [checked, setCheck] = useState(completed);
+
   const handleCheck = () => {
     setCheck(!checked);
   }
